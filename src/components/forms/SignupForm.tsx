@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword, Auth } from "firebase/auth";
 import { CollectionReference, DocumentData, collection, doc, setDoc } from "firebase/firestore";
 import { db } from "@/db/firebase-config";
+import Input from "../UI/Input";
 
 const SignupForm: React.FC = () => {
   const [signupForm, setSignupForm] = useState({ email: "", password: "" });
@@ -37,8 +38,8 @@ const SignupForm: React.FC = () => {
 
   return (
     <form id="signup-form" onSubmit={signup}>
-      <input type="email" name="email" value={signupForm.email} onChange={handleChange} />
-      <input type="password" name="password" value={signupForm.password} onChange={handleChange} />
+      <Input id="email-signup" type="email" name="email" value={signupForm.email} onChange={handleChange} />
+      <Input id="password-signup" type="password" name="password" value={signupForm.password} onChange={handleChange} />
       <input type="submit" value="Submit" />
     </form>
   );

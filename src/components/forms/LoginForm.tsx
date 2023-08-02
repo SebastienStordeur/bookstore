@@ -1,13 +1,21 @@
 "use client";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import React from "react";
+import React, { useState } from "react";
+import Input from "../UI/Input";
 
 const LoginForm: React.FC = () => {
+  const [loginForm, setLoginForm] = useState({ email: "", password: "" });
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setLoginForm({ ...loginForm, [event.target.name]: event.target.value });
+  };
+
   const handleSignin = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     const auth = getAuth();
-    const email = "test2@test.com";
-    const password = "password";
+    const email = loginForm.email;
+    const password = loginForm.password;
 
     signInWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
@@ -19,10 +27,12 @@ const LoginForm: React.FC = () => {
         console.log(errorCode);
       });
   };
+
   return (
     <form id="login-form" onSubmit={handleSignin}>
-      <input type="email" />
-      <input type="password" />
+      <Input id="email-login" type="email" name="email" value={loginForm.email} onChange={handleChange} />
+      <Input id="password-login" type="password" name="password" value={loginForm.password} onChange={handleChange} />
+
       <input type="submit" value="Submit" />
     </form>
   );

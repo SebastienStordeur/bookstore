@@ -5,11 +5,11 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   name: string;
   value: string;
-  onChange: () => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input: React.FC<InputProps> = ({ id, className, name, value, onChange }) => {
-  return <input id={id} className={className} name={name} value={value} onChange={onChange} />;
+const Input: React.FC<InputProps> = ({ id, className, name, value, onChange, ...rest }) => {
+  return <input id={id} className={className} name={name} value={value} onChange={onChange} {...rest} />;
 };
 
 export default React.memo(Input);
