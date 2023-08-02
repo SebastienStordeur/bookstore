@@ -1,6 +1,8 @@
 "use client";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
+
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 import Input from "../UI/Input";
 
 const LoginForm: React.FC = () => {

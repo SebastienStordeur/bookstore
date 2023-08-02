@@ -4,7 +4,10 @@ import React, { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword, Auth } from "firebase/auth";
 import { CollectionReference, DocumentData, collection, doc, setDoc } from "firebase/firestore";
 import { db } from "@/db/firebase-config";
+
 import Input from "../UI/Input";
+
+// TODO add names
 
 const SignupForm: React.FC = () => {
   const [signupForm, setSignupForm] = useState({ email: "", password: "" });

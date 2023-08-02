@@ -11,6 +11,7 @@ export default function Home() {
 
   onAuthStateChanged(auth, (user) => {
     setIsAuthenticated(() => (user === null ? false : true));
+    console.log(user);
     return user;
   });
 
