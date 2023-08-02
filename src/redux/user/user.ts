@@ -16,7 +16,7 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    login(state, action: PayloadAction<null>) {
+    login(state, action: PayloadAction<UserState>) {
       const payload = action.payload;
       state.email = payload.email;
       state.firstname = payload.firstname;
@@ -24,6 +24,10 @@ const userSlice = createSlice({
     },
     logout(state) {
       return (state = initialState);
+    },
+    retrieveProfile(state) {
+      /* const payload = action.payload; */
+      state.firstname = "Sebastien";
     },
   },
 });
