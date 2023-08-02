@@ -33,8 +33,17 @@ export default function Home() {
 
   const addItem = () => {
     const quantity = 2;
-    dispatch(cartActions.addItemToCart({ quantity }));
+    const id = "TESTID";
+    const price = 25;
+    dispatch(cartActions.addItemToCart({ id, quantity, price }));
   };
+
+  const removeItem = () => {
+    const id = "TESTID";
+    const quantity = 1;
+    dispatch(cartActions.removeItemFromCart({ id, quantity }));
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <SignupForm />
@@ -48,6 +57,9 @@ export default function Home() {
 
       <button onClick={addItem} className="h-10 border-2 cursor-pointer bg-red-800 text-white px-8">
         Add item to cart
+      </button>
+      <button onClick={removeItem} className="h-10 border-2 cursor-pointer bg-red-800 text-white px-8">
+        Remove item from cart
       </button>
     </main>
   );
