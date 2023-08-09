@@ -24,7 +24,7 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addItemToCart(state, action: PayloadAction<CartItem>) {
+    addItemToCart(state, action: PayloadAction<any>) {
       // adjust the generic
       const payload = action.payload;
       const existingItem = state.cart.find((item) => item.id === payload.id);
@@ -44,7 +44,7 @@ const cartSlice = createSlice({
       state.totalQuantity += payload.quantity;
       console.log(state.cart[0].id);
     },
-    removeItemFromCart(state, action: PayloadAction<CartItem>) {
+    removeItemFromCart(state, action: PayloadAction<any>) {
       const payload = action.payload;
       const existingItem = state.cart.find((item) => item.id === payload.id);
       console.log("EXISTING ITEM : ", existingItem);
