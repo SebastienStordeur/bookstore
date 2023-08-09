@@ -31,19 +31,17 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <section id="login" className="flex mx-auto py-20 px-8 bg-white shadow-lg w-full max-w-lg rounded-lg">
-      <form id="login-form" className="flex flex-col w-full" onSubmit={handleSignin}>
-        <h2 className="text-2xl font-semibold uppercase mb-10">Log In</h2>
-        <Input id="email-login" type="email" name="email" value={loginForm.email} onChange={handleChange} />
-        <Input id="password-login" type="password" name="password" value={loginForm.password} onChange={handleChange} />
+    <form id="login-form" className="flex flex-col w-full" onSubmit={handleSignin}>
+      <h2 className="text-2xl font-semibold uppercase mb-10">Log In</h2>
+      <Input id="email-login" type="email" name="email" value={loginForm.email} onChange={handleChange} />
+      <Input id="password-login" type="password" name="password" value={loginForm.password} onChange={handleChange} />
 
-        <input
-          type="submit"
-          className="w-full mt-4 border h-14 bg-yellow-200 font-semibold text-lg uppercase shadow cursor-pointer focus:outline-none focus:ring focus:ring-red-200"
-          value="Submit"
-        />
-      </form>
-    </section>
+      <input
+        type="submit"
+        className="w-full mt-4 border h-14 bg-yellow-200 font-semibold text-lg uppercase shadow cursor-pointer focus:outline-none focus:ring focus:ring-red-200"
+        value="Submit"
+      />
+    </form>
   );
 };
 

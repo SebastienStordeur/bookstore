@@ -43,12 +43,12 @@ export default function Home() {
         <Navbar />
       </header>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <SignupForm />
+        {/* <SignupForm /> */}
 
         <h1>LOGIN {name}</h1>
         {isAuthenticated && <p>Authenticated</p>}
         {!isAuthenticated && <p>Not authenticated</p>}
-        <LoginForm />
+        {/*  <LoginForm /> */}
 
         <button onClick={addItem} className="h-10 border-2 cursor-pointer bg-red-800 text-white px-8">
           Add item to cart

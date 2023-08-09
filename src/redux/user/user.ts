@@ -21,7 +21,6 @@ const userSlice = createSlice({
   reducers: {
     login(state, action: PayloadAction<UserState>) {
       const payload = action.payload;
-      console.log(payload);
       state.email = payload.email;
       state.firstname = payload.firstname;
       state.lastname = payload.lastname;
@@ -32,6 +31,8 @@ const userSlice = createSlice({
       signOut(auth)
         .then(() => {
           state = initialState;
+          console.log(state);
+          return state;
         })
         .catch((error) => {
           console.log(error);
