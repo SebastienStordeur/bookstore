@@ -2,6 +2,7 @@
 
 import LoginForm from "@/components/forms/LoginForm";
 import SignupForm from "@/components/forms/SignupForm";
+import Navbar from "@/components/nav/Navbar";
 import { cartActions } from "@/redux/cart/cart";
 import { RootState } from "@/redux/store";
 import { userActions } from "@/redux/user/user";
@@ -23,14 +24,6 @@ export default function Home() {
     return user;
   });
 
-  const handleLogout = () => {
-    signOut(auth)
-      .then(() => dispatch(userActions.logout()))
-      .catch((error) => {
-        console.log("ERROR");
-      });
-  };
-
   const addItem = () => {
     const quantity = 2;
     const id = "TESTID";
@@ -45,22 +38,25 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <SignupForm />
+    <>
+      <header>
+        <Navbar />
+      </header>
+      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <SignupForm />
 
-      <h1>LOGIN {name}</h1>
-      {isAuthenticated && <p>Authenticated</p>}
-      {!isAuthenticated && <p>Not authenticated</p>}
-      <LoginForm />
+        <h1>LOGIN {name}</h1>
+        {isAuthenticated && <p>Authenticated</p>}
+        {!isAuthenticated && <p>Not authenticated</p>}
+        <LoginForm />
 
-      {isAuthenticated && <button onClick={handleLogout}>Logout</button>}
-
-      <button onClick={addItem} className="h-10 border-2 cursor-pointer bg-red-800 text-white px-8">
-        Add item to cart
-      </button>
-      <button onClick={removeItem} className="h-10 border-2 cursor-pointer bg-red-800 text-white px-8">
-        Remove item from cart
-      </button>
-    </main>
+        <button onClick={addItem} className="h-10 border-2 cursor-pointer bg-red-800 text-white px-8">
+          Add item to cart
+        </button>
+        <button onClick={removeItem} className="h-10 border-2 cursor-pointer bg-red-800 text-white px-8">
+          Remove item from cart
+        </button>
+      </main>
+    </>
   );
 }
